@@ -6,9 +6,19 @@
 </head>
 <body>
   <div id="app">
-    <hello-component></hello-component>
-    <hello-component></hello-component>
-    <hello-component></hello-component>
+    <p>
+      {{message}}
+    </p>
+    <p v-if="toggle">
+      <a v-bind:href="url">Vue.js</a>
+    </p>
+    <ul>
+      <li v-for="language in languages">{{language}}</li>
+    </ul>
+    <button v-on:click="clickHandler">Click</button>
+    <p>
+      <input type="text" v-model="message">
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script language="javascript" type="text/javascript">
@@ -18,7 +28,19 @@
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue.js!'
+        message: 'Hello World',
+        url: 'https://jp.vuejs.org/',
+        toggle: true,
+        languages: [
+          'Javascript',
+          'Ruby',
+          'Python'
+        ]
+      },
+      methods: {
+        clickHandler: function() {
+          this.message = 'Clicked!'
+        } 
       }
     })
   </script>
