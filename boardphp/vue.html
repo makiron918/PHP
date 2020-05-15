@@ -6,32 +6,14 @@
 </head>
 <body>
   <div id="app">
-    <p>
-      {{ message }}
-    </p>
-    <p>
-      {{count}}
-    </p>
-    <p>
-      {{user.prefecture}}
-    </p>
-    <p>
-      {{colors[1]}}
-    </p>
+    <input type="text" v-bind:value="message"/>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script language="javascript" type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue.js！',
-        count: 0,
-        user: {
-          lastName: 'Yamada',
-          firstName: 'Taro',
-          prefecture: 'Tokyo'
-        },
-        colors: ['Red', 'Green', 'Blue']
+        message: 'Hello Vue.js!'
       }
     })
   </script>
