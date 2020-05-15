@@ -6,27 +6,21 @@
 </head>
 <body>
   <div id="app">
-    <ul>
-      <li v-for="value in user">{{value}}</li>
-    </ul>
-    <hr>
-    <ul>
-      <li v-for="(value, key) in user">{{key}} : {{value}}</li>
-    </ul>
-    <hr>
-    <ul>
-      <li v-for="(v, key) in user">{{key}} : {{v}}</li>
-    </ul>
+    <button v-on:click="onclick">Click!</button>
+    <p>
+      {{now}}
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script language="javascript" type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        user: {
-          firstName: 'Taro',
-          lastName: 'Yamada',
-          age: 28
+        now: ''
+      },
+      methods: {
+        onclick: function() {
+          alert('onclick')
         }
       }
     })
