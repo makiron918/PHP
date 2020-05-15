@@ -6,16 +6,16 @@
 </head>
 <body>
   <div id="app">
-    <p v-show="toggle">
-      Hello
-    </p>
+    <ol>
+      <li v-for="color in colors">{{color}}</li>
+    </ol>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script language="javascript" type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        toggle: true
+        colors: ['Red', 'Green', 'Blue']
       }
     })
   </script>
