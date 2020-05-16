@@ -1,10 +1,8 @@
 class Main {
   public static void main(String[] args) {
     // 引数に「Kate Jones」を渡してください
-    printData("Kate Jones");
-    
-    // 引数に「John Christopher Smith」を渡してください
-    printData("John Christopher Smith");
+    printData("Kate Jones", 27);
+    printData("John Christopher Smith", 65);
     
   }
 
