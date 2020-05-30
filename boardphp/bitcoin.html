@@ -8,11 +8,15 @@
 <body>
   <div id="app">
     <h2>Bitcoin Price</h2>
-    <ul v-cloak>
-      <li v-for="(rate, currency) in bpi">
-        {{ currency }} : {{ rate.rate_float | currencyDecimal }}
-      </li>
-    </ul>
+    <section v-if="hasError">Error.</section>
+    <section v-else>
+      <ul v-cloak>
+        <li v-for="(rate, currency) in bpi">
+          {{ currency }} : {{ rate.rate_float | currencyDecimal }}
+        </li>
+      </ul>
+    </section>
+    
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
@@ -20,7 +24,8 @@
   var app = new Vue({
     el: '#app',
     data: {
-      bpi: null
+      bpi: null,
+      hasError: false
     },
     mounted: function() {
       axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
@@ -31,7 +36,8 @@
       }.bind(this))
       .catch(function(error){
         console.log(error)
-      })
+        this.hasError = true
+      }.bind(this))
     },
     filters: {
       currencyDecimal(value) {
